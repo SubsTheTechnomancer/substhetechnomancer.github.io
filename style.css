@@ -1,0 +1,12 @@
+html {
+    background-color: blueviolet;
+}
+
+.tape-recorder{
+    display: grid;
+    position: absolute;
+    border: 5px solid red;
+    width: 200vw;
+    height: 80vh;
+    place-items: center;
+}
