@@ -1,2 +1,2 @@
-# substhetechnomancer.github.io
+# My Mixtape
 Github website repository
