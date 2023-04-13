@@ -2,11 +2,40 @@ html {
     background-color: blueviolet;
 }
 
-.tape-recorder{
-    display: grid;
-    position: absolute;
-    border: 5px solid red;
-    width: 200vw;
-    height: 80vh;
-    place-items: center;
+@media (orientation: landscape){
+    #tape-recorder{
+        display: grid;
+        position: fixed;
+        aspect-ratio: 3/2;
+        height: 120vh;
+        min-width: 100vw;
+        transform: translate(-10vw, 0);
+
+        margin: auto 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+
+        border: 5px solid red;
+
+        place-items: center;
+    }
+}
+
+@media (orientation: portrait){
+    #tape-recorder{
+        display: grid;
+        position: fixed;
+        width: 120vw;
+        aspect-ratio: 2/3;
+        transform: translate(0, -10vh);
+
+        margin: 0 auto;
+        left: -10vw;
+        bottom: 0;
+
+        border: 5px solid blue;
+
+        place-items: center;
+    }
 }
