@@ -4,7 +4,7 @@ html {
 
 @media (orientation: landscape){
     #tape-recorder{
-        display: grid;
+        display: block;
         position: fixed;
         aspect-ratio: 3/2;
         height: 120vh;
@@ -17,6 +17,14 @@ html {
         right: 0;
 
         border: 5px solid red;
+    }
+
+    #tape-grid{
+        display: grid;
+        position: relative;
+        margin-left: 60%;
+        top: 50%;
+        transform: translate(0,-50%);
 
         place-items: center;
     }
@@ -24,7 +32,7 @@ html {
 
 @media (orientation: portrait){
     #tape-recorder{
-        display: grid;
+        display: block;
         position: fixed;
         width: 120vw;
         aspect-ratio: 2/3;
@@ -35,6 +43,15 @@ html {
         bottom: 0;
 
         border: 5px solid blue;
+    }
+
+    #tape-grid{
+        display: grid;
+        position: relative;
+        width: 50vw;
+        margin-top: 100%;
+        left: 50%;
+        transform: translate(-50%,0);
 
         place-items: center;
     }
