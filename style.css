@@ -2,7 +2,7 @@ html {
     background-color: blueviolet;
 }
 
-.main-title, .side-title, .recorder-buttons {
+.main-title, .side-title, .cassette, .recorder-buttons {
     border: 3px dotted purple;
 }
 
@@ -12,6 +12,10 @@ html {
 
 .side-title {
     grid-area: side-title;
+}
+
+.cassette {
+    grid-area: cassette;
 }
 
 .recorder-buttons {
@@ -41,19 +45,24 @@ html {
         position: relative;
         width: 80vw;
         margin-left: calc(100% - 80vw);
-        height: 100vh;
+        height: min(calc(2/3 * 80vw), 100vh);
         top: 50%;
         transform: translate(0,-50%);
 
-        grid-template-columns: 2fr 0.5fr 0.5fr;
-        grid-template-rows: 0.5fr 2fr 0.5fr;
+        grid-template-columns: 4fr 1fr 1fr;
+        grid-template-rows: 1fr 4fr 1fr;
         grid-template-areas: 
         "main-title main-title recorder-buttons"
-        ". side-title recorder-buttons"
+        "cassette side-title recorder-buttons"
         ". . recorder-buttons";
         /* place-items: center; */
 
         border: 1px solid green;
+    }
+
+    .cassette>picture>img{
+        width: 100%;
+        object-fit: contain;
     }
 }
 
@@ -75,20 +84,25 @@ html {
     #tape-grid{
         display: grid;
         position: relative;
-        width: 100vw;
         height: 80vh;
         margin-top: 100%;
+        width: min(calc(2/3 * 80vh), 100vw);
         left: 50%;
         transform: translate(-51%,0); /* God only knows why tf 50% is not correctly aligned */
 
-        grid-template-columns: 0.5fr 2fr 0.5fr;
-        grid-template-rows: 2fr 0.5fr 0.5fr;
+        grid-template-columns: 1fr 4fr 1fr;
+        grid-template-rows: 4fr 1fr 1fr;
         grid-template-areas: 
-        ". . main-title"
+        ". cassette main-title"
         ". side-title main-title"
         "recorder-buttons recorder-buttons recorder-buttons";
         /* place-items: center; */
 
         border: 1px solid green;
+    }
+
+    .cassette>picture>img{
+        width: 100%;
+        object-fit: contain;
     }
 }
