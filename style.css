@@ -2,12 +2,29 @@ html {
     background-color: blueviolet;
 }
 
+.main-title, .side-title, .recorder-buttons {
+    border: 3px dotted purple;
+}
+
+.main-title {
+    grid-area: main-title;
+}
+
+.side-title {
+    grid-area: side-title;
+}
+
+.recorder-buttons {
+    display: grid;
+    grid-area: recorder-buttons;
+}
+
 @media (orientation: landscape){
     #tape-recorder{
         display: block;
         position: fixed;
         aspect-ratio: 3/2;
-        height: 120vh;
+        height: 120vh; /*TODO: Both height and width will completely screw over the pic if the pic is not a fixed aspect ratio as well*/
         min-width: 100vw;
         transform: translate(-10vw, 0);
 
@@ -22,11 +39,21 @@ html {
     #tape-grid{
         display: grid;
         position: relative;
-        margin-left: 60%;
+        width: 80vw;
+        margin-left: calc(100% - 80vw);
+        height: 100vh;
         top: 50%;
         transform: translate(0,-50%);
 
-        place-items: center;
+        grid-template-columns: 2fr 0.5fr 0.5fr;
+        grid-template-rows: 0.5fr 2fr 0.5fr;
+        grid-template-areas: 
+        "main-title main-title recorder-buttons"
+        ". side-title recorder-buttons"
+        ". . recorder-buttons";
+        /* place-items: center; */
+
+        border: 1px solid green;
     }
 }
 
@@ -48,11 +75,20 @@ html {
     #tape-grid{
         display: grid;
         position: relative;
-        width: 50vw;
+        width: 100vw;
+        height: 80vh;
         margin-top: 100%;
         left: 50%;
-        transform: translate(-50%,0);
+        transform: translate(-51%,0); /* God only knows why tf 50% is not correctly aligned */
 
-        place-items: center;
+        grid-template-columns: 0.5fr 2fr 0.5fr;
+        grid-template-rows: 2fr 0.5fr 0.5fr;
+        grid-template-areas: 
+        ". . main-title"
+        ". side-title main-title"
+        "recorder-buttons recorder-buttons recorder-buttons";
+        /* place-items: center; */
+
+        border: 1px solid green;
     }
 }
